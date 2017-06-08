@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="mybatis1@localhost">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.0">
+    <root id="1"/>
+    <schema id="2" parent="1" name="mybatis1">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="3" parent="1" name="book"/>
+    <schema id="4" parent="1" name="db"/>
+    <schema id="5" parent="1" name="db_design"/>
+    <schema id="6" parent="1" name="easyui"/>
+    <schema id="7" parent="1" name="exper_1"/>
+    <schema id="8" parent="1" name="information_schema"/>
+    <schema id="9" parent="1" name="introduction"/>
+    <schema id="10" parent="1" name="jpa"/>
+    <schema id="11" parent="1" name="mis"/>
+    <schema id="12" parent="1" name="mybatis"/>
+    <schema id="13" parent="1" name="mysql"/>
+    <schema id="14" parent="1" name="performance_schema"/>
+    <schema id="15" parent="1" name="personweb"/>
+    <schema id="16" parent="1" name="pra_1"/>
+    <schema id="17" parent="1" name="qq"/>
+    <schema id="18" parent="1" name="springdata"/>
+    <schema id="19" parent="1" name="sssp"/>
+    <schema id="20" parent="1" name="studentinfo"/>
+    <schema id="21" parent="1" name="test"/>
+    <schema id="22" parent="1" name="test1"/>
+    <schema id="23" parent="1" name="web1"/>
+    <schema id="24" parent="1" name="zxg"/>
+    <table id="25" parent="2" name="department"/>
+    <table id="26" parent="2" name="tb1_employee"/>
+    <column id="27" parent="25" name="d_id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="28" parent="25" name="dept_name">
+      <Position>2</Position>
+      <DataType>varchar(55)|0</DataType>
+    </column>
+    <key id="29" parent="25" name="PRIMARY">
+      <ColNames>d_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="30" parent="26" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="31" parent="26" name="last_name">
+      <Position>2</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="32" parent="26" name="gender">
+      <Position>3</Position>
+      <DataType>char(1)|0</DataType>
+    </column>
+    <column id="33" parent="26" name="email">
+      <Position>4</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="34" parent="26" name="dept_id">
+      <Position>5</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <index id="35" parent="26" name="dept_id">
+      <ColNames>dept_id</ColNames>
+    </index>
+    <key id="36" parent="26" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="37" parent="26" name="dept_id">
+      <ColNames>dept_id</ColNames>
+      <RefSchemaName>mybatis1</RefSchemaName>
+      <RefTableName>department</RefTableName>
+      <RefColNames>d_id</RefColNames>
+    </foreign-key>
+  </database-model>
+</dataSource>

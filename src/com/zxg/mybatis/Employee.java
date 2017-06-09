@@ -2,11 +2,13 @@ package com.zxg.mybatis;
 
 import org.apache.ibatis.type.Alias;
 
+import java.io.Serializable;
+
 /**
  * Created by zxg on 2017/5/23.
  */
 @Alias("emp")
-public class Employee {
+public class Employee implements Serializable {
     private Integer id;
     private String lastName;
     private String email;
@@ -65,6 +67,10 @@ public class Employee {
     }
 
     public Employee() {
+    }
+
+    public Employee(Integer id) {
+        this.id = id;
     }
 
     public Employee(Integer id, String lastName, String email, String gender, Department dept) {

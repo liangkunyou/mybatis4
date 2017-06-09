@@ -1,11 +1,12 @@
 package com.zxg.mybatis;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
  * Created by zxg on 2017/6/3.
  */
-public class Department {
+public class Department implements Serializable {
     private Integer id;
     private String deptName;
     private List<Employee> employees;

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zxg.dao.DepartmentMapperLevelCache">
+    <!--<cache eviction="FIFO" flushInterval="60000" readOnly="false" size="1024"></cache>-->
+
+    <!--
+       引用和那个 namespace 的缓存一样
+    -->
+    <cache-ref namespace="com.zxg.dao.EmployeeMapperLevelCache"></cache-ref>
+    <select id="getDept" resultType="com.zxg.mybatis.Department">
+        select * from mybatis1.department where d_id = #{id}
+    </select>
+</mapper>

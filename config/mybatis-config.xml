@@ -113,5 +113,6 @@
 
 		<!-- 批量注册： -->
         <mapper resource="EmployeeMapperLevelCache.xml"></mapper>
+        <mapper resource="DepartmentMapperLevelCache.xml"></mapper>
     </mappers>
 </configuration>

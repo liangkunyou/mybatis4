@@ -1,6 +1,8 @@
 package com.zxg.test;
 
+import com.zxg.dao.DepartmentMapperLevelCache;
 import com.zxg.dao.EmployeeMapperLevelCache;
+import com.zxg.mybatis.Department;
 import com.zxg.mybatis.Employee;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
@@ -119,6 +121,29 @@ public class EmployeeMapperCacheTest {
              */
             Employee employee1 = levelCache1.getEmps(new Employee(1));
             System.out.println("employee1 = " + employee1);
+            sqlSession1.close();
+        } finally {
+//            sqlSession.close();
+        }
+    }
+
+    @Test
+    public void testDepartmentCache() {
+        SqlSession sqlSession = this.sqlSessionFactory.openSession(true);
+        SqlSession sqlSession1 = this.sqlSessionFactory.openSession(true);
+        try {
+
+            DepartmentMapperLevelCache levelCache = sqlSession.getMapper(DepartmentMapperLevelCache.class);
+            DepartmentMapperLevelCache levelCache1 = sqlSession1.getMapper(DepartmentMapperLevelCache.class);
+            Department dept = levelCache.getDept(new Department(1));
+            System.out.println("dept = " + dept);
+            sqlSession.close();
+
+            /**
+             * 第二次是从二级缓存取得，但是二级缓存必须在一个会话关闭以后，一级缓存的数据 才会把数据转移到二级缓存
+             */
+            Department dept1 = levelCache1.getDept(new Department(1));
+            System.out.println("dept1 = " + dept1);
             sqlSession1.close();
         } finally {
 //            sqlSession.close();

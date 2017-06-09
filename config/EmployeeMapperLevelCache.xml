@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.zxg.dao.EmployeeMapperLevelCache">
-    <!--
+   <!--
         <cache></cache> 使用二级缓存
         eviction：缓存的回收策略
             • LRU – 最近最少使用的：移除最长时间不被使用的对象。
@@ -22,7 +22,12 @@
          type: 指定自定义缓存的全类名
             实现 Cache 接口
     -->
-    <cache eviction="FIFO" flushInterval="60000" readOnly="false" size="1024"></cache>
+    <!--<cache eviction="FIFO" flushInterval="60000" readOnly="false" size="1024"></cache>-->
+
+    <!--
+        使用 type 属性指定使用的 Cache 的缓存
+    -->
+    <cache type="org.mybatis.caches.ehcache.EhcacheCache"></cache>
     <select id="getEmps" resultType="com.zxg.mybatis.Employee">
         select * from mybatis1.tb1_employee where id = #{id}
     </select>
